@@ -1,36 +1,31 @@
-from sklearn.metrics import mean_squared_error as MSE
+from sklearn.metrics import accuracy_score
 import csv
 import numpy as np
 from math import sqrt
+import pandas as pd
+
+TEST_LABELS = '../data/Testdata/validate_dataset_only_labels.csv'
 
 def readDataSet(groupname):
-    y = []
-    with open(groupname, 'rb') as csvfile:
-        reader = csv.reader(csvfile, delimiter=',', quotechar='|')
-        for row in reader:
-                y.append(float(row[-1]))
-    return y
+    with open(groupname, 'rb') as f:
+        return map(int, f.readlines())
+
 
 def readTarget():
-    y_predicted = []
-    with open('target', 'rb') as csvfile:
-        reader = csv.reader(csvfile, delimiter=',', quotechar='|')
-        for row in reader:
-                y_predicted.append(float(row[0]))
-    return y_predicted
+    return pd.read_csv(TEST_LABELS, index_col=0).get_values()
 
 def score(groupname):
-    y_predicted = readDataSet(groupname)
-    y = readTarget()
+    input_file = "../output/{}.txt".format(groupname)
 
-    mse = MSE( y, y_predicted )
-    rmse = sqrt( mse )
+    y_pred = readDataSet(input_file)
+    y_true = readTarget()
 
-    print "group: ", groupname, ": score: ", rmse
+    accuracy = accuracy_score(y_true, y_pred)
 
-score("gruppe1");
-score("gruppe2");
-score("gruppe3");
-score("gruppe4");
-score("gruppe5");
-score("gruppe6");
+    print("group: {},  score: {}".format(groupname, accuracy))
+
+# list all group names here
+groups = ["ash"]
+
+for g in groups:
+    score(g)

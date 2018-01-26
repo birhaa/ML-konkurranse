@@ -1,6 +1,9 @@
 # ML-konkurranse
 Vi estimerer boligpriser i King County, USA.
 
+
+*This readme is not valid for pokemon challenge*
+
 ## Intro
 
 Repoet inneholder to datasett. Et treningsdatasett med fasit og et testsett uten fasit. Dere skal prediktere boligpriser for testsettet. Begge settene består av to versjoner, et normalisert og et ikke normalisert. Prediksjonene som leveres inn skal være ikke normalisert. Vi har lag ved et skript for å denormalisere data.
@@ -24,12 +27,12 @@ Hans-Christian <br />
 Mikael B <br />
 Kristian <br />
 
-### Lag 2: 
+### Lag 2:
 Trygve <br />
 Mari R <br />
 Therese <br />
 
-### Lag 3: 
+### Lag 3:
 William <br />
 Alexandra B <br />
 Michael <br />

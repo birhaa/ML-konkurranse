@@ -3,6 +3,7 @@ import csv
 import numpy as np
 from math import sqrt
 import pandas as pd
+import math
 
 TEST_LABELS = '../test_data.csv'
 
@@ -20,9 +21,10 @@ def score(groupname):
     y_pred = readDataSet(input_file)
     y_true = readTarget()
 
-    accuracy = accuracy_score(y_true, y_pred)
 
-    print("group: {},  score: {}".format(groupname, accuracy))
+    true_or_false = map(lambda (a, b): a == b, zip(y_pred, y_true))
+
+    print("group: {:10},  score: {} / {}".format(groupname, sum(true_or_false), len(true_or_false)))
 
 # list all group names here
 groups = ["ash", "bulbasar"]

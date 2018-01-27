@@ -1,12 +1,12 @@
-from sklearn import tree
+from sklearn import linear_model
 import csv
 import numpy as np
 from sklearn.metrics import mean_squared_error as MSE
 from math import sqrt
 import pandas as pd
 
-TRAIN_PATH = '../data/Treningsdata/train_dataset.csv'
-TEST_PATH = '../data/Testdata/validate_dataset_without_labels.csv'
+TRAIN_PATH = '../train_data.csv'
+TEST_PATH = '../test_data_u.csv'
 
 GROUP_NAME = 'ash'.lower()
 
@@ -18,7 +18,7 @@ def readDataSet():
 
 (X, y) = readDataSet()
 
-clf = tree.DecisionTreeClassifier()
+clf = linear_model.LogisticRegression()
 clf = clf.fit(X, y)
 
 print("Training set score: %f" % clf.score(X, y))

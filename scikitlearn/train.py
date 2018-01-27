@@ -8,7 +8,7 @@ import pandas as pd
 TRAIN_PATH = '../train_data.csv'
 TEST_PATH = '../test_data_u.csv'
 
-GROUP_NAME = 'ash'.lower()
+GROUP_NAME = 'bulbasar'.lower()
 
 def readDataSet():
     train_data = pd.read_csv(TRAIN_PATH, index_col=0, usecols=["1HP","1Attack","1Defence","1Sp.Attack","1Sp.Def","1Speed","1Generation","1Legendary","2HP","2Attack","2Defence","2Sp.Attack","2Sp.Def","2Speed","2Generation","2Legendary","Winner"])

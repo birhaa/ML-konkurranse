@@ -4,7 +4,7 @@ import numpy as np
 from math import sqrt
 import pandas as pd
 
-TEST_LABELS = '../data/Testdata/validate_dataset_only_labels.csv'
+TEST_LABELS = '../test_data.csv'
 
 def readDataSet(groupname):
     with open(groupname, 'rb') as f:
@@ -12,7 +12,7 @@ def readDataSet(groupname):
 
 
 def readTarget():
-    return pd.read_csv(TEST_LABELS, index_col=0).get_values()
+    return pd.read_csv(TEST_LABELS, index_col=0)["Winner"].get_values()
 
 def score(groupname):
     input_file = "../output/{}.txt".format(groupname)
@@ -25,7 +25,7 @@ def score(groupname):
     print("group: {},  score: {}".format(groupname, accuracy))
 
 # list all group names here
-groups = ["ash"]
+groups = ["ash", "bulbasar"]
 
 for g in groups:
     score(g)
